@@ -39,8 +39,6 @@ if st.button("show"):
 else:
   st.write("Please press the show button")
 
-except KeyError:
-  st.error(" Invalid city!!  Please try again !!")
 
 
 
