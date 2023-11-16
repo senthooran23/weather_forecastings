@@ -20,26 +20,39 @@ url = BASE_URL + "appid=" + API_KEY + "&q=" + CITY
 response = requests.get(url).json()
 
 if st.button("show"):
-  temp_kelvin = response['main']['temp']
-  temp_celsius, temp_fahrenheit = kelvin_to_celsius_fahrenheit(temp_kelvin)
-  feels_like_kelvin = response['main']['feels_like']
-  feels_like_celsius , feels_like_fahrenheit = kelvin_to_celsius_fahrenheit(feels_like_kelvin)
-  wind_speed = response['wind']['speed']
-  humidity = response['main']['humidity']
-  description = response['weather'][0]['description']
-  sunrise_time = dt.datetime.utcfromtimestamp(response['sys']['sunrise']+response['timezone'])
-  sunset_time = dt.datetime.utcfromtimestamp(response['sys']['sunset']+response['timezone'])
+  try:
+    temp_kelvin = response['main']['temp']
+    temp_celsius, temp_fahrenheit = kelvin_to_celsius_fahrenheit(temp_kelvin)
+    feels_like_kelvin = response['main']['feels_like']
+    feels_like_celsius , feels_like_fahrenheit = kelvin_to_celsius_fahrenheit(feels_like_kelvin)
+    wind_speed = response['wind']['speed']
+    humidity = response['main']['humidity']
+    description = response['weather'][0]['description']
+    sunrise_time = dt.datetime.utcfromtimestamp(response['sys']['sunrise']+response['timezone'])
+    sunset_time = dt.datetime.utcfromtimestamp(response['sys']['sunset']+response['timezone'])
 
-  st.write(f"**Temperature** :mostly_sunny: in {CITY}: {temp_celsius:.2f}°c or {temp_fahrenheit:.2f}°F")
-  st.write(f"**Humidity** :sun_behind_rain_cloud: in {CITY}: {humidity}%")
-  st.write(f"**wind speed** :tornado_cloud: in {CITY}: {wind_speed}m/s")
-  st.write(f"**General Weather** :barely_sunny: in {CITY}: {description}")
-  st.write(f"**sun rises**:sunrise: in {CITY} at {sunrise_time} local time.")
-  st.write(f"**sun sets** :city_sunset: in {CITY} at {sunset_time} local time.")
-  st.markdown("Made with :heart: by : ")
-  st.markdown("Senthooran E 🤩")
+    st.write(f"**Temperature** :mostly_sunny: in {CITY}: {temp_celsius:.2f}°c or {temp_fahrenheit:.2f}°F")
+    st.write(f"**Humidity** :sun_behind_rain_cloud: in {CITY}: {humidity}%")
+    st.write(f"**wind speed** :tornado_cloud: in {CITY}: {wind_speed}m/s")
+    st.write(f"**General Weather** :barely_sunny: in {CITY}: {description}")
+    st.write(f"**sun rises**:sunrise: in {CITY} at {sunrise_time} local time.")
+    st.write(f"**sun sets** :city_sunset: in {CITY} at {sunset_time} local time.")
+    st.header("")
+    st.header("")
+    st.header("")
+    st.header("")
+    st.header("")
+    st.header("")
+    st.header("")
+    st.markdown("Made with :heart: by : ")
+    st.markdown("Senthooran E 🤩")
+  except KeyError:
+    st.error("Invalid City !! Please try again")
+    
+  
 else:
   st.write("Please press the show button")
+
 
 
 
