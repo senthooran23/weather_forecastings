@@ -36,6 +36,8 @@ if st.button("show"):
   st.write(f"**General Weather** :barely_sunny: in {CITY}: {description}")
   st.write(f"**sun rises**:sunrise: in {CITY} at {sunrise_time} local time.")
   st.write(f"**sun sets** :city_sunset: in {CITY} at {sunset_time} local time.")
+  st.markdown("Made with :heart: by : ")
+  st.markdown("Senthooran E 🤩")
 else:
   st.write("Please press the show button")
 
@@ -45,5 +47,4 @@ else:
 
 
 
-st.markdown("Made with :heart: by : ")
-st.markdown("Senthooran E 🤩")
+
