@@ -40,10 +40,7 @@ if st.button("show"):
     st.header("")
     st.header("")
     st.header("")
-    st.header("")
-    st.header("")
-    st.header("")
-    st.header("")
+    
     st.markdown("Made with :heart: by : ")
     st.markdown("Senthooran E 🤩")
   except KeyError:
