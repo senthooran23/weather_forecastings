@@ -3,6 +3,7 @@ import streamlit as st
 import datetime as dt
 import requests
 
+st.set_page_config(page_title='Senthooran E', page_icon=":rainbow:")
 st.header("Weather API App :sun_with_face::partly_sunny::thunder_cloud_and_rain: ")
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
 API_KEY = "8230aa0896b6fa4a24698661e7cf92fb"
